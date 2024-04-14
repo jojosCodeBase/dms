@@ -1,0 +1,39 @@
+.btn-primary{
+    background-color: #0275d8;
+    color: white;
+}
+
+.btn-primary:hover{
+    background-color: #286ba5;
+    cursor: pointer;
+}
+
+.btn-success{
+    background-color: #5cb85c;
+    color: white;
+}
+
+.btn-success:hover{
+    background-color: #5cb85cde;
+    cursor: pointer;
+}
+
+.btn-info{
+    background-color: #5bc0de;
+    color: white;
+}
+
+.btn-warning{
+    background-color: #f0ad4e;
+    color: white;
+}
+
+.btn-danger{
+    background-color: #d9534f;
+    color: white;
+}
+
+.btn-danger:hover{
+    background-color: #d8312c;
+    cursor: pointer;
+}

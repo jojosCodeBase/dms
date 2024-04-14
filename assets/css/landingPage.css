@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    text-align: center;
+}
+.banner{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient( 95.2deg, rgba(173,252,234,1) 26.8%, rgba(192,229,246,1) 64% );
+    background-size: cover;
+    background-position: center;
+}
+ 
+.navbar{
+    width: 85%;
+    margin: auto;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-items{
+    display: block;
+}
+
+#hamburger{
+    display: none;
+}
+
+.logo{
+    width: 250px;
+    cursor: pointer;
+}
+
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    color: black;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+}
+
+.navbar ul li a:hover {
+    color: gray;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.content{
+    width: 100%;
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: black;
+}
+
+.searchBar{
+    display: inline-block;
+    margin-top: 15rem;
+}
+
+.submit-btn{
+    display: inline-block;
+    text-align: center;
+}
+
+.submit-btn input[type=submit]{
+    width: 8rem;
+    height: 5vh;
+    background-color: rgb(24, 59, 212);
+    border: none;
+    padding: 0.2rem;
+    color: white;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.note{
+    width: 100%;
+    position: absolute;
+    top: 80%;
+    color: red;
+}
+
+.content p{
+    font-weight: bold;
+}
+
+.copyright-footer{
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 88%;
+}

@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+body{
+    width: 100%;
+    /* height: 0 auto; */
+    /* background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url("smit.png"); */
+    background-image: linear-gradient( 95.2deg, rgba(173,252,234,1) 26.8%, rgba(192,229,246,1));
+    /* background-color: rgb(80, 207, 216); */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+.navbar{
+    display: inline-block;
+    /* padding: 1rem; */
+}
+
+.navbar-items{
+    background-color: #f1f1f1;
+
+    /* padding: 5rem; */
+    /* border: 1px solid black; */
+    width: 80%;
+    margin: auto;
+    border-radius: 5px;
+    text-align: center;
+    /* display: none; */
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+}
+#hamburger{
+    font-weight: bold;
+    background-color: orange;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 4px;
+    height: 5vh;
+    color: white;
+    border-radius: 3px;
+    width: 2rem;
+    margin-right: 0%;
+    margin-left: 3rem;
+}
+.navbar-items a{
+    display: block;
+    margin-top: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    color: blue;
+}
+.logo{
+    width: 15rem;
+}
+
+.content h1{
+    font-size: 1.5rem;
+    padding: 0.8rem;
+}
+
+.content p{
+    font-size: 1rem;
+    padding: 0.8rem;
+    text-align: justify;
+    font-weight: bold;
+}
+
+ol{
+    font-size: 1rem;
+    margin-left: 1.8rem;
+    text-align: left;
+    list-style-type: disc;
+}
+
+.searchBar{
+    padding: 1rem;
+}
+
+.submit-btn{
+    display: inline-block;
+}
+
+.submit-btn input[type=submit]{
+    width: 5rem;
+    background-color: rgb(24, 59, 212);
+    border: none;
+    padding: 0.2rem;
+    color: white;
+    font-size: 1rem;
+    border-radius: 4px;
+}
+
+.note{
+    width: 100%;
+    position: absolute;
+    margin-top: 10rem;
+    color: red;
+}
+
+.copyright-footer{
+    margin-top: 18.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}

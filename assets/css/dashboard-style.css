@@ -1,0 +1,114 @@
+ /* Header */
+ header {
+   background-color: #23282d;
+   color: #fff;
+   padding: 1rem;
+   text-align: center;
+   position: fixed;
+   width: 100%;
+   top: 0;
+   left: 0;
+   height: 88px;
+ }
+
+ .header-text {
+   margin-left: 12rem;
+   font-size: 1rem;
+ }
+
+ .left-logo {
+   position: absolute;
+   left: 0px;
+   margin-left: 2px;
+   background-color: white;
+   top: 0;
+ }
+
+ .right-logo {
+   position: absolute;
+   right: 0px;
+   margin-right: 50px;
+ }
+
+ img {
+   height: 100px;
+   width: 198px;
+   top: 0;
+ }
+
+ /* Navigation */
+ sidebar {
+   background-color: #23282d;
+   height: 100%;
+   width: 200px;
+   position: fixed;
+   text-align: left;
+   top: 0;
+   left: 0;
+   margin-top: 88px;
+ }
+
+ nav ul {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+ }
+
+ nav .custom-border{
+   border-bottom: 1px solid #444;
+   border-top: 1px solid #444;
+ }
+
+ nav li:last-child {
+   border-bottom: none;
+ }
+
+ nav a {
+   color: #fff;
+   display: block;
+   padding: 1rem;
+   text-decoration: none;
+ }
+
+ nav a:hover {
+   background-color: #555;
+   color: #fff;
+ }
+
+ /* Main */
+ main {
+   margin-top: 60px;
+   margin-left: 200px;
+   padding: 2rem;
+ }
+
+ /* main content for contents*/
+ .main-content {
+   margin-left: 200px;
+   /*Adjust for the width of the sidebar*/
+   padding: 20px;
+   margin-top: 80px;
+ }
+
+ .sidebar-icon {
+   font-size: 1.3rem;
+   display: inline-block;
+   /* align-items: center; */
+   /* justify-content: space-between; */
+   padding-right: 1rem;
+ }
+
+
+ /* Footer */
+ footer {
+   background-color: #f0f0f0;
+   color: #333;
+   padding: 1rem;
+   text-align: center;
+   margin-left: 200px;
+ }
+
+
+ .bg-custom {
+   background-color: #23282d;
+ }

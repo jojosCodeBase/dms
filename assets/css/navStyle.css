@@ -1,0 +1,40 @@
+@import url('/font-awesome-4.6.3/css/font-awesome.min.css');
+
+/* Navigation */
+ aside {
+    background-color: #23282d;
+    color: #fff;
+    /* margin-top: 10px;  */
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav li {
+    border-bottom: 1px solid #444;
+  }
+  
+  nav li:last-child {
+    border-bottom: none;
+  }
+  
+  nav a {
+    color: #fff;
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+  }
+  
+  nav a:hover {
+    background-color: #555;
+  }
