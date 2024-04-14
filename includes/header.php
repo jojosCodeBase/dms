@@ -1,11 +1,11 @@
 <header>
     <div class="left-logo">
         <!-- <img src="img/headerlogo.png" alt="smit-logo"> -->
-        <img src="../assets/img/smitlogo.png" alt="smit-logo">
+        <img src="../assets/img/logo.jpg" alt="smit-logo">
     </div>
     <div class="header-text">
         <h4>Disaster Management Portal</h4>
-        <h5>Sikkim Manipal Institute of Technology</h3>
+        
     </div>
 </header>
 <sidebar>
