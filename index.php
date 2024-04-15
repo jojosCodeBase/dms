@@ -22,7 +22,7 @@ if (mysqli_connect_errno()) {
 
 				$_SESSION['user_id'] = $row['id'];
 
-				if ($row['role'] == 1) { // Admin role
+				if ($row['role'] == 0) { // Admin role
 					header('Location: pages/admin_dashboard');
 				} else { // Other roles
 					header('Location: pages/dashboard');
