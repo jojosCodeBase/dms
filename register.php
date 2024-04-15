@@ -25,57 +25,58 @@
         <div class="row d-flex justify-content-center">
             <div class="col-5">
                 <h4 class="text-center mt-5">User Registration Form</h5>
-                    <div class="card">
-                        <div class="card-body">
-                            <form action="registerSubmit" class="row g-3 needs-validation" novalidate method="POST">
-                                <div class="mb-3 has-validation">
-                                    <label for="name" class="form-label">Name:</label>
-                                    <input type="text" id="name" name="name" class="form-control" required>
-                                    <div class="invalid-feedback">
-                                        This field is required
-                                    </div>
+                <div class="card">
+                    <div class="card-body">
+                        <form action="registerSubmit" class="row g-3 needs-validation" novalidate method="POST">
+                            <div class="mb-3 has-validation">
+                                <label for="name" class="form-label">Name:</label>
+                                <input type="text" id="name" name="name" class="form-control" required>
+                                <div class="invalid-feedback">
+                                    This field is required
                                 </div>
+                            </div>
 
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">Email:</label>
-                                    <input type="email" id="email" name="email" class="form-control" required>
-                                    <div class="invalid-feedback">
-                                        This field is invalid
-                                    </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email:</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                                <div class="invalid-feedback">
+                                    This field is invalid
                                 </div>
+                            </div>
 
-                                <div class="mb-3">
-                                    <label for="phone" class="form-label">Phone:</label>
-                                    <input type="tel" id="phone" name="phone" class="form-control" required>
-                                    <div class="invalid-feedback">
-                                        This field is invalid
-                                    </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone:</label>
+                                <input type="tel" id="phone" name="phone" class="form-control" required>
+                                <div class="invalid-feedback">
+                                    This field is invalid
                                 </div>
+                            </div>
 
-                                <div class="mb-3">
-                                    <label for="password" class="form-label">Password:</label>
-                                    <input type="password" id="password" name="password" class="form-control" required>
-                                    <div class="invalid-feedback">
-                                        This field is required
-                                    </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password:</label>
+                                <input type="password" id="password" name="password" class="form-control" required>
+                                <div class="invalid-feedback">
+                                    This field is required
                                 </div>
+                            </div>
 
-                                <div class="mb-3">
-                                    <label for="confirm-password" class="form-label">Confirm Password:</label>
-                                    <input type="password" id="confirm-password" name="confirm-password"
-                                        class="form-control" required>
-                                    <div class="invalid-feedback">
-                                        Passwords do not match
-                                    </div>
+                            <div class="mb-3">
+                                <label for="confirm-password" class="form-label">Confirm Password:</label>
+                                <input type="password" id="confirm-password" name="confirm-password"
+                                    class="form-control" required>
+                                <div class="invalid-feedback">
+                                    Passwords do not match
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Save</button>
-                                </div>
-                            </form>
-                        </div>
+                            </div>
+                            <input type="text" value="register" name="type" hidden>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </form>
                     </div>
+                </div>
             </div>
         </div>
     </div>

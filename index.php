@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "dms");
+include ('includes/config.php');
 if (mysqli_connect_errno()) {
 	printf("Connect failed: %s\n", mysqli_connect_error());
 	exit();
@@ -19,6 +19,8 @@ if (mysqli_connect_errno()) {
 				$_SESSION['loggedIn'] = true;
 
 				$_SESSION['userData'] = $row;
+
+				$_SESSION['user_id'] = $row['id'];
 
 				if ($row['role'] == 1) { // Admin role
 					header('Location: pages/admin_dashboard');
@@ -40,6 +42,19 @@ if (mysqli_connect_errno()) {
 		}
 	}
 
+}
+// Check for success or error query parameters
+if (isset($_GET['alert'])) {
+	if ($_GET['alert'] === 'success') {
+		echo "<script>alert('User registered successfully');";
+		echo "window.location='index'</script>";
+	} elseif ($_GET['alert'] === 'error') {
+		// Decode the message parameter and display the error alert
+		$errorMessage = isset($_GET['message']) ? urldecode($_GET['message']) : "An error occurred.";
+		echo "<script>alert('$errorMessage');
+		window.location='index'
+		</script>";
+	}
 }
 ?>
 <!DOCTYPE html>
@@ -69,7 +84,7 @@ if (mysqli_connect_errno()) {
 							<div class="form-group mb-3">
 								<label for="email" class="form-label">Username:</label>
 								<input type="email" id="email" name="email" placeholder="Enter your username"
-									class="form-control" required>
+									class="form-control text-dark" required>
 							</div>
 
 							<div class="form-group mb-3">
@@ -79,7 +94,8 @@ if (mysqli_connect_errno()) {
 							</div>
 
 							<div class="form-check mb-3">
-								<input type="checkbox" class="form-check-input" id="checkbox">
+								<input type="checkbox" class="form-check-input" id="checkbox"
+									onclick="togglePasswordVisibility()">
 								<label class="form-check-label" for="checkbox">Show Password</label>
 							</div>
 
@@ -100,6 +116,18 @@ if (mysqli_connect_errno()) {
 		</div>
 
 	</div>
+	<script>
+		function togglePasswordVisibility() {
+			var passwordField = document.getElementById("password");
+			var checkbox = document.getElementById("checkbox");
+
+			if (checkbox.checked) {
+				passwordField.type = "text";
+			} else {
+				passwordField.type = "password";
+			}
+		}
+	</script>
 
 </body>
 

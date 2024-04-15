@@ -11,8 +11,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check connection
 
     // Prepare and bind the SQL statement
-    $stmt = $conn->prepare("INSERT INTO donations (donation_date, donated_by, item, amount, area) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $donation_date, $donated_by, $item, $amount, $area);
+    $stmt = $conn->prepare("INSERT INTO donations (date, donated_by, item, amount, area, relief_type) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssss", $donation_date, $donated_by, $item, $amount, $area, $relief_type);
 
     // Set parameters and execute
     $donation_date = $_POST['donation_date'];
@@ -20,15 +20,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $item = $_POST['item'];
     $amount = $_POST['amount'];
     $area = $_POST['area'];
+    $relief_type = $_POST['relief_type'];
 
     // Execute the SQL statement
     if ($stmt->execute()) {
-        $message = "Donation added successfully!";
+        // Redirect back to the previous page
+        
+        header("Location: manage-donations.php?alert=success");
+        // if($_POST['type'] === "register"){
+        //     header("Location: index.php?alert=success");
+        // }else{
+        // }
+        exit();
     } else {
-        $message = "Error: " . $conn->error;
+        // Set error message
+        header("Location: manage-donations.php?alert=error&message=" . urlencode("Error: " . $stmt->error));
     }
+    // if ($stmt->execute()) {
+    //     $message = "Donation added successfully!";
+    // } else {
+    //     $message = "Error: " . $conn->error;
+    // }
 
-    echo $message;
+    // echo $message;
 
     // Close statement and database connection
     $stmt->close();

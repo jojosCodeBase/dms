@@ -42,7 +42,9 @@ include "../includes/config.php";
             // Check for success or error query parameters
             if (isset($_GET['alert'])) {
                 if ($_GET['alert'] === 'success') {
-                    echo "<script>alert('User registered successfully');</script>";
+                    echo "<script>alert('User added successfully');
+                    window.location='manage-users'
+                    </script>";
                 } elseif ($_GET['alert'] === 'error') {
                     // Decode the message parameter and display the error alert
                     $errorMessage = isset($_GET['message']) ? urldecode($_GET['message']) : "An error occurred.";
@@ -80,7 +82,7 @@ include "../includes/config.php";
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Phone</th>
-                                    <th>Password</th>
+                                    <!-- <th>Password</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -102,7 +104,7 @@ include "../includes/config.php";
                                             echo "<td>" . $row['name'] . "</td>";
                                             echo "<td>" . $row['email'] . "</td>";
                                             echo "<td>" . $row['phone'] . "</td>";
-                                            echo "<td>" . $row['password'] . "</td>";
+                                            // echo "<td>" . $row['password'] . "</td>";
                                             echo "</tr>";
                                         }
                                     } else {
@@ -123,7 +125,7 @@ include "../includes/config.php";
                                             echo "<td>" . $row['name'] . "</td>";
                                             echo "<td>" . $row['email'] . "</td>";
                                             echo "<td>" . $row['phone'] . "</td>";
-                                            echo "<td>" . $row['password'] . "</td>";
+                                            // echo "<td>" . $row['password'] . "</td>";
                                             echo "</tr>";
                                         }
                                     } else {

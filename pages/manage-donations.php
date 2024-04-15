@@ -38,6 +38,20 @@ include "../includes/config.php";
             <div class="row mb-4 mt-4">
                 <h4>Manage Donations</h4>
             </div>
+            <?php
+            // Check for success or error query parameters
+            if (isset($_GET['alert'])) {
+                if ($_GET['alert'] === 'success') {
+                    echo "<script>alert('Donation added successfully');
+                    window.location='manage-donations'
+                    </script>";
+                } elseif ($_GET['alert'] === 'error') {
+                    // Decode the message parameter and display the error alert
+                    $errorMessage = isset($_GET['message']) ? urldecode($_GET['message']) : "An error occurred.";
+                    echo "<script>alert('$errorMessage');</script>";
+                }
+            }
+            ?>
             <div class="row">
                 <div class="col">
                     <button type="button" class="btn btn-success" data-bs-toggle="modal"
@@ -68,36 +82,60 @@ include "../includes/config.php";
                                     <th>Date</th>
                                     <th>Donated By</th>
                                     <th>Item</th>
+                                    <th>Area</th>
                                     <th>Relief</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                // Fetch donation records from the database
-                                $sql = "SELECT * FROM donations";
-                                $result = mysqli_query($conn, $sql);
+                                // Check if form is submitted
+                                if (isset($_POST['submit'])) {
+                                    // Get the search query
+                                    $search = $_POST['reg-no'];
 
-                                // Check if there are any records
-                                if (mysqli_num_rows($result) > 0) {
-                                    // Loop through each row of the result set
-                                    while ($row = mysqli_fetch_assoc($result)) {
-                                        // Output each donation record as a table row
-                                        echo "<tr>";
-                                        echo "<td>" . $row['donation_date'] . "</td>";
-                                        echo "<td>" . $row['donated_by'] . "</td>";
-                                        echo "<td>" . $row['item'] . "</td>";
-                                        echo "<td>" . $row['area'] . "</td>";
-                                        echo "</tr>";
+                                    // Prepare a SQL statement to search for posts by name
+                                    $sql = "SELECT * FROM donations WHERE donated_by LIKE '%$search%'";
+                                    $result = mysqli_query($conn, $sql);
+
+                                    // Check if there are any matching records
+                                    if (mysqli_num_rows($result) > 0) {
+                                        // Loop through each matching row and display the user data
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            echo "<tr>";
+                                            echo "<td>" . date('h:i d-m-Y', strtotime($row['created_at'])) . "</td>";
+                                            echo "<td>" . $row['donated_by'] . "</td>";
+                                            echo "<td>" . $row['item'] . "</td>";
+                                            echo "<td>" . $row['area'] . "</td>";
+                                            echo "<td>" . $row['relief_type'] . "</td>";
+                                            echo "</tr>";
+                                        }
+                                    } else {
+                                        // Output a message if no matching posts are found
+                                        echo "<tr><td colspan='4'>No donations found</td></tr>";
                                     }
                                 } else {
-                                    // Output a message if no donations are found
-                                    echo "<tr>
-                                            <td colspan='4'>No donations found</td>
-                                            </tr>";
-                                }
+                                    // If the form is not submitted, display all posts
+                                    $sql = "SELECT * FROM donations";
+                                    $result = mysqli_query($conn, $sql);
 
-                                // Close the database connection
-                                mysqli_close($conn);
+                                    // Check if there are any records
+                                    if (mysqli_num_rows($result) > 0) {
+                                        // Loop through each row of the result set
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            // Output each user record as a table row
+                                            echo "<tr>";
+                                            echo "<td>" . date('h:i d-m-Y', strtotime($row['created_at'])) . "</td>";
+                                            echo "<td>" . $row['donated_by'] . "</td>";
+                                            echo "<td>" . $row['item'] . "</td>";
+                                            echo "<td>" . $row['area'] . "</td>";
+                                            echo "<td>" . $row['relief_type'] . "</td>";
+                                            echo "</tr>";
+                                        }
+                                    } else {
+                                        // Output a message if no posts are found
+                                        echo "<tr><td colspan='4'>No donations found</td></tr>";
+                                    }
+                                }
                                 ?>
                             </tbody>
                         </table>
@@ -140,6 +178,10 @@ include "../includes/config.php";
                             <div class="mb-3">
                                 <label for="area" class="form-label">Area:</label>
                                 <input type="text" id="area" name="area" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="relief_type" class="form-label">Relief type:</label>
+                                <input type="text" id="relief_type" name="relief_type" class="form-control" required>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

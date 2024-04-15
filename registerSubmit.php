@@ -1,15 +1,7 @@
 <?php
+include('includes/config.php');
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Database connection details
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "dms";
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -28,7 +20,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt->execute()) {
         // Redirect back to the previous page
-        header("Location: pages/manage-users.php?alert=success");
+
+        if($_POST['type'] === "register"){
+            header("Location: index.php?alert=success");
+        }else{
+            header("Location: pages/manage-users.php?alert=success");
+        }
         exit();
     } else {
         // Set error message

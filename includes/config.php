@@ -1,6 +1,6 @@
 <?php
     // Establish database connection.
-    $conn = mysqli_connect('localhost', 'root', '', 'dms');
+    $conn = mysqli_connect('localhost', 'root', '', 'test');
     if(!$conn)
     {
         echo "<script>alert('Couldn't connect to database');</script>";

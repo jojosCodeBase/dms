@@ -1,7 +1,37 @@
 <?php
 include "../includes/session.php";
 include "../includes/config.php";
- ?>
+
+// Assuming you have established a database connection
+
+// Retrieve data for donations
+$sql_donations = "SELECT SUM(amount) AS total_donations FROM donations";
+$result_donations = mysqli_query($conn, $sql_donations);
+$row_donations = mysqli_fetch_assoc($result_donations);
+$total_donations = $row_donations['total_donations'];
+
+
+// Retrieve data for users
+$sql_users = "SELECT COUNT(*) AS total_users FROM users";
+$result_users = mysqli_query($conn, $sql_users);
+$row_users = mysqli_fetch_assoc($result_users);
+$total_users = $row_users['total_users'];
+
+echo $total_users;
+
+// Retrieve data for posts
+$sql_posts = "SELECT COUNT(*) AS total_posts FROM posts";
+$result_posts = mysqli_query($conn, $sql_posts);
+$row_posts = mysqli_fetch_assoc($result_posts);
+$total_posts = $row_posts['total_posts'];
+
+// Retrieve data for reliefs
+$sql_reliefs = "SELECT COUNT(*) AS total_reliefs FROM reliefs";
+$result_reliefs = mysqli_query($conn, $sql_reliefs);
+$row_reliefs = mysqli_fetch_assoc($result_reliefs);
+$total_reliefs = $row_reliefs['total_reliefs'];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,7 +74,8 @@ include "../includes/config.php";
                             <div class="row">
                                 <div class="col-8">
                                     <h5>Donations</h5>
-                                    <span class="fw-bold h4">&#8377; 5,84,367</span>
+                                    <span class="fw-bold h4">&#8377;
+                                        <?php echo number_format($total_donations); ?></span>
                                 </div>
                                 <div class="col-4">
                                     <i class="bi bi-person-video3 fs-3 text-success"></i>
@@ -59,7 +90,7 @@ include "../includes/config.php";
                             <div class="row">
                                 <div class="col-8">
                                     <h5>Users</h5>
-                                    <span class="fw-bold h4">127</span>
+                                    <span class="fw-bold h4"><?php echo $total_users; ?></span>
                                 </div>
                                 <div class="col-4">
                                     <i class="bi bi-chat-left-text-fill fs-3 text-warning"></i>
@@ -74,7 +105,7 @@ include "../includes/config.php";
                             <div class="row">
                                 <div class="col-8">
                                     <h5>Posts</h5>
-                                    <span class="fw-bold h4">876</span>
+                                    <span class="fw-bold h4"><?php echo $total_posts; ?></span>
                                 </div>
                                 <div class="col-4">
                                     <i class="bi bi-journal-text fs-3 text-warning"></i>
@@ -89,7 +120,7 @@ include "../includes/config.php";
                             <div class="row">
                                 <div class="col-8">
                                     <h5>Reliefs</h5>
-                                    <span class="fw-bold h4">251</span>
+                                    <span class="fw-bold h4"><?php echo $total_reliefs; ?></span>
                                 </div>
                                 <div class="col-4">
                                     <i class="bi bi-journal-text fs-3 text-warning"></i>
