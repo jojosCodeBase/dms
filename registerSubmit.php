@@ -8,8 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Prepare and bind SQL statement
-    $stmt = $conn->prepare("INSERT INTO users (name, email, phone, password) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $name, $email, $phone, $password);
+    $stmt = $conn->prepare("INSERT INTO users (name, email, phone, password, role) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $name, $email, $phone, $password, $role);
 
     // Set parameters and execute
     $name = $_POST['name'];
@@ -17,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone = $_POST['phone'];
     // $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash password before storing
     $password = $_POST['password']; // Hash password before storing
+    $role = 1; // for user
 
     if ($stmt->execute()) {
         // Redirect back to the previous page

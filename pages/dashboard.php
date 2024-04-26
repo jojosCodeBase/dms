@@ -26,7 +26,7 @@ $row_posts = mysqli_fetch_assoc($result_posts);
 $total_posts = $row_posts['total_posts'];
 
 // Retrieve data for reliefs
-$sql_reliefs = "SELECT COUNT(*) AS total_reliefs FROM reliefs";
+$sql_reliefs = "SELECT COUNT(*) AS total_reliefs FROM relief";
 $result_reliefs = mysqli_query($conn, $sql_reliefs);
 $row_reliefs = mysqli_fetch_assoc($result_reliefs);
 $total_reliefs = $row_reliefs['total_reliefs'];
@@ -56,7 +56,7 @@ $total_reliefs = $row_reliefs['total_reliefs'];
 </head>
 
 <body>
-    <?php include "../includes/header.php"; ?>
+    <?php include "user_dashboard.php"; ?>
     <script>
         function logout() {
             window.location = "logout";
@@ -73,7 +73,7 @@ $total_reliefs = $row_reliefs['total_reliefs'];
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-8">
-                                    <h5>Donations</h5>
+                                    <h5>Donated</h5>
                                     <span class="fw-bold h4">&#8377;
                                         <?php echo number_format($total_donations); ?></span>
                                 </div>
@@ -84,7 +84,7 @@ $total_reliefs = $row_reliefs['total_reliefs'];
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-6 mb-3">
+                <!-- <div class="col-xl-3 col-6 mb-3">
                     <div class="card bg-custom">
                         <div class="card-body">
                             <div class="row">
@@ -98,13 +98,13 @@ $total_reliefs = $row_reliefs['total_reliefs'];
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-xl-3 col-6">
                     <div class="card bg-custom">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-8">
-                                    <h5>Posts</h5>
+                                    <h5>Reported Disasters</h5>
                                     <span class="fw-bold h4"><?php echo $total_posts; ?></span>
                                 </div>
                                 <div class="col-4">
