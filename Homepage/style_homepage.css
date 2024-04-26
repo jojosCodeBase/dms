@@ -96,7 +96,7 @@ ul{
     width: 200px; /* Set the width to your desired size */
      /* Let the height adjust proportionally */
      height: 80px;
-        margin-right: 300px;
+        margin-right: 200px;
 
 }
 .main-nav {
@@ -112,7 +112,11 @@ ul{
     gap: 30px;
 }
 .nav-links{
-    flex-basis: 730px;
+    flex-basis: 800px;
+}
+
+.nav-links a{
+    font-weight: bold;
 }
 
 header{

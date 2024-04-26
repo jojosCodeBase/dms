@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Report Disaster</title>
+    <link rel="stylesheet" href="donate.css" />
+  </head>
+  <body>
+    <div class="top-banner">
+        <div class="container-top">
+            <div class="small-bold-text banner-text">An official website for Disaster Management System</div>
+            <a href="http://localhost/project%2069/Login%20and%20Register/login.html"
+            class="login-links">Login</a>
+            <a href="http://localhost/project%2069/Login%20and%20Register/login.html#"
+            class="register-link">Register</a>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Donate for Disaster Relief</h2>
+        <form>
+            <div class="form-group">
+                <label for="firstname">First Name:</label>
+                <input type="text" id="firstname" name="firstname" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+            </div>
+            <div class="form-group">
+                <label for="items">Items:</label>
+                <select id="items" name="items" required>
+                    <option value="" disabled selected>Select Item</option>
+                    <option value="Clothes">Clothes</option>
+                    <option value="Food">Food</option>
+                    <option value="None">None</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="pincode">Pincode:</label>
+                <input type="number" id="pincode" name="pincode" required>
+            </div>
+            <div class="form-group">
+                <label for="amount">Amount:</label>
+                <select id="amount" name="amount" required>
+                    <option value="" disabled selected>Select Amount</option>
+                    <option value="Any">Any</option>
+                    <option value="None">None</option>
+                </select>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+  </body>
+</html>
