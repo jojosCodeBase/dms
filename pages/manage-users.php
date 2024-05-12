@@ -83,9 +83,11 @@ include "../includes/config.php";
                                     <th>Email</th>
                                     <th>Phone</th>
                                     <!-- <th>Password</th> -->
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+
                                 <?php
                                 // Check if form is submitted
                                 if (isset($_POST['submit'])) {
@@ -125,7 +127,16 @@ include "../includes/config.php";
                                             echo "<td>" . $row['name'] . "</td>";
                                             echo "<td>" . $row['email'] . "</td>";
                                             echo "<td>" . $row['phone'] . "</td>";
-                                            // echo "<td>" . $row['password'] . "</td>";
+                                            // echo "<td>
+                                            // <button class='btn'><a href='edit-user'><i class='fa-solid fa-pencil'></i></a></button>
+                                            // <button class='btn'><a href=''><i class='fa-solid fa-trash'></i></a></button>
+                                            // </td>";
+                                            echo "<td>
+        <button class='btn'><a href='edit-user?id={$row['id']}'><i class='fa-solid fa-pencil'></i></a></button>
+        <button class='btn' onclick='deleteUser({$row['id']})'><i class='fa-solid fa-trash'></i></button>
+      </td>";
+
+
                                             echo "</tr>";
                                         }
                                     } else {
@@ -188,6 +199,31 @@ include "../includes/config.php";
     <?php
     include "../includes/footer.php";
     ?>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  function deleteUser(userId) {
+    if (confirm('Are you sure you want to delete this user?')) {
+      $.ajax({
+        url: 'delete-user', // Corrected URL of the server-side script that handles deletion
+        type: 'POST',
+        data: { id: userId },
+        success: function(response) {
+          // Handle success response
+          console.log(response);
+          // Reload the page after successful deletion
+          location.reload();
+        },
+        error: function(xhr, status, error) {
+          // Handle error
+          console.error(xhr.responseText);
+        }
+      });
+    }
+  }
+</script>
+
+
 </body>
 
 </html>
