@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($result->num_rows > 0) {
     // User authenticated, redirect to dashboard or home page
-    header("Location: https://hentaihaven.xxx/");
+    header("Location: dashboard.php");
     exit();
   } else {
     // Authentication failed, redirect back to login page with error message

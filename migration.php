@@ -24,20 +24,26 @@ $schema = [
     ],
     'relief' => [
         'id' => 'INT AUTO_INCREMENT PRIMARY KEY',
-        'name' => 'VARCHAR(255)',
-        'area' => 'VARCHAR(255)',
-        'relief_type' => 'VARCHAR(100)',
-        'date' => 'DATE',
-        'created_at' => 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP',
-        'updated_at' => 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
-    ],
+        'name' => 'VARCHAR(255) NOT NULL',
+        'email' => 'VARCHAR(255) NOT NULL',
+        'phone' => 'VARCHAR(20) NOT NULL',
+        'description' => 'TEXT',
+        'location' => 'VARCHAR(255)',
+        'assistance_type' => 'VARCHAR(100)',
+        'date' => 'DATETIME',
+        'status' => 'VARCHAR(50)'
+    ],    
     'posts' => [
         'id' => 'INT AUTO_INCREMENT PRIMARY KEY',
         'name' => 'VARCHAR(255)',
         'postedby' => 'VARCHAR(255)',
         'disaster_type' => 'VARCHAR(100)',
         'status' => 'INT(2)',
+        'phone' => 'VARCHAR(13)',
+        'location' => 'VARCHAR(255)',
         'date' => 'DATE',
+        'pincode' => 'INT(10)',
+        'description' => 'VARCHAR(255)',
         'created_at' => 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP',
         'updated_at' => 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
     ]
@@ -47,7 +53,7 @@ $schema = [
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "test";
+$dbname = "dms";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

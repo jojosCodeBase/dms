@@ -12,7 +12,7 @@ include "../includes/config.php";
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="../assets/css/dashboard-style.css">
     <link rel="stylesheet" href="../assets/css/bootstrap.css">
-    <title>Manage posts</title>
+    <title>Manage Requests</title>
     <style>
         .bg-custom {
             background-color: #23282d;
@@ -35,7 +35,7 @@ include "../includes/config.php";
     <div class="container-fluid">
         <main class="content">
             <div class="row mb-4 mt-4">
-                <h4>Manage Posts</h4>
+                <h4>Manage Requests</h4>
             </div>
 
             <?php
@@ -54,14 +54,10 @@ include "../includes/config.php";
             ?>
             <div class="row">
                 <div class="col">
-                    <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                        data-bs-target="#postAddModal">New Post</buttton>
-                </div>
-                <div class="col">
                     <form action="" method="POST">
                         <div class="row d-flex justify-content-end">
-                            <div class="col-7">
-                                <input type="text" id="searchInput" placeholder="Search user by post name"
+                            <div class="col-4">
+                                <input type="text" id="searchInput" placeholder="Search request by name"
                                     class="form-control" name="reg-no" required>
                             </div>
                             <div class="col-auto">
@@ -73,18 +69,18 @@ include "../includes/config.php";
             </div>
             <div class="bg-light mt-2">
                 <div class="row p-3 mt-3">
-                    <span class="h4">All posts</span>
+                    <span class="h4">All Requests</span>
 
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <th>Date</th>
-                                    <th>Posted by</th>
+                                    <th>Requested by</th>
                                     <th>Phone</th>
                                     <th>Location</th>
-                                    <th>Pincode</th>
-                                    <th>Disaster Type</th>
+                                    <th>Request Type</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -96,7 +92,7 @@ include "../includes/config.php";
                                     $search = $_POST['reg-no'];
 
                                     // Prepare a SQL statement to search for posts by name
-                                    $sql = "SELECT * FROM posts WHERE name LIKE '%$search%' ORDER BY created_at DESC";
+                                    $sql = "SELECT * FROM relief WHERE name LIKE '%$search%' ORDER BY created_at DESC";
                                     $result = mysqli_query($conn, $sql);
 
                                     // Check if there are any matching records
@@ -108,18 +104,17 @@ include "../includes/config.php";
                                             echo "<td>" . $row['name'] . "</td>";
                                             echo "<td>" . $row['phone'] . "</td>";
                                             echo "<td>" . $row['location'] . "</td>";
-                                            echo "<td>" . $row['pincode'] . "</td>";
-                                            echo "<td>" . $row['disaster_type'] . "</td>";
+                                            // echo "<td>" . $row['pincode'] . "</td>";
+                                            echo "<td>" . $row['assistance_type'] . "</td>";
+
                                             if ($row['status'] == 0) {
-                                                echo "<td><a href='update-post?post_id=" . $row['id'] . "&status=approve'><button class='btn btn-success'>Approve</button></a>
-                                                <a href='update-post?post_id=" . $row['id'] . "&status=reject'><button class='btn btn-danger'>Reject</button></a></td>";
-
+                                                echo "<td class='text-warning'>Pending</td>";
                                             } else if ($row['status'] == 1) {
-                                                echo "<td>Approved</td>";
+                                                echo "<td class='text-success'>Approved</td>";
                                             } else {
-                                                echo "<td>Rejected</td>";
+                                                echo "<td class='text-danger'>Rejected</td>";
                                             }
-
+                                            echo "<td><a href='view-request?request_id=".$row['id']."'>View</a></td>";
                                             echo "</tr>";
                                         }
                                     } else {
@@ -128,7 +123,7 @@ include "../includes/config.php";
                                     }
                                 } else {
                                     // If the form is not submitted, display all posts
-                                    $sql = "SELECT * FROM posts ORDER BY created_at DESC";
+                                    $sql = "SELECT * FROM relief ORDER BY created_at DESC";
                                     $result = mysqli_query($conn, $sql);
 
                                     // Check if there are any records
@@ -141,19 +136,16 @@ include "../includes/config.php";
                                             echo "<td>" . $row['name'] . "</td>";
                                             echo "<td>" . $row['phone'] . "</td>";
                                             echo "<td>" . $row['location'] . "</td>";
-                                            echo "<td>" . $row['pincode'] . "</td>";
-                                            echo "<td>" . $row['disaster_type'] . "</td>";
+                                            echo "<td>" . $row['assistance_type'] . "</td>";
 
                                             if ($row['status'] == 0) {
-                                                echo "<td><a href='update-post?post_id=" . $row['id'] . "&status=approve'><button class='btn btn-success'>Approve</button></a>
-                                                <a href='update-post?post_id=" . $row['id'] . "&status=reject'><button class='btn btn-danger'>Reject</button></a></td>";
-
+                                                echo "<td class='text-warning'>Pending</td>";
                                             } else if ($row['status'] == 1) {
                                                 echo "<td class='text-success'>Approved</td>";
                                             } else {
                                                 echo "<td class='text-danger'>Rejected</td>";
                                             }
-
+                                            echo "<td><a href='view-request?request_id=".$row['id']."'>View</a></td>";
                                             echo "</tr>";
                                         }
                                     } else {
@@ -184,8 +176,8 @@ include "../includes/config.php";
                             </div>
 
                             <div class="mb-3">
-                                <label for="disaster_type" class="form-label">Disaster Type:</label>
-                                <input type="text" id="disaster_type" name="disaster_type" class="form-control"
+                                <assistancefor="disaster_type" class="form-label">Disaster Type:</label>
+                                <input type="assistance id="disaster_type" assistanceame="disaster_type" class="form-control"
                                     required>
                             </div>
 

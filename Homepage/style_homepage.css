@@ -95,13 +95,13 @@ ul{
 .logo img {
     width: 200px; /* Set the width to your desired size */
      /* Let the height adjust proportionally */
-     height: 80px;
-        margin-right: 200px;
+    height: 80px;
+    margin-right: 0px;
 
 }
 .main-nav {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center; /* Center items vertically */
     margin-top: 20px;
 }
@@ -112,7 +112,7 @@ ul{
     gap: 30px;
 }
 .nav-links{
-    flex-basis: 800px;
+    flex-basis: 1000px;
 }
 
 .nav-links a{
